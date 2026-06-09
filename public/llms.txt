@@ -1,0 +1,100 @@
+# N&N AFFORDABLE BUNDLES — Generative Engine Optimization Map
+
+> A data bundle reselling business that operates across all mobile networks, offering customers flexible internet data packages. The business caters to a broad market by providing multi-network coverage, making it a one-stop shop for data connectivity needs.
+
+---
+
+## Pages
+
+### Home
+https://n-n-affordable-bundles-ed1977f1.zappy5.app
+Shop flexible internet bundles across all mobile networks in one place. N&amp;N AFFORDABLE BUNDLES delivers unbeatable value from top telecommunications service providers. Start saving now!
+
+### Features
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/features
+Discover how our reselling platform gives you seamless access to fiber optic telecommunications and mobile data packages. Switch networks freely and enjoy total connectivity control.
+
+### About
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/about
+Learn how N&amp;N AFFORDABLE BUNDLES became a trusted alternative to the bahamas telecommunications company model. Our mission: affordable, borderless data for every lifestyle.
+
+### Contact
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/contact
+Ready to upgrade your internet? Reach out today and let our experts match you with the perfect data bundle from leading telecommunications service providers. Your seamless connection starts here.
+
+### Products
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/products
+Our Products - N&N AFFORDABLE BUNDLES
+
+### Cart
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/cart
+Your Cart
+
+### Checkout
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/checkout
+Checkout
+
+### Login
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/login
+Customer Login
+
+### Account
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/account
+My Account
+
+### Order Success
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/order-success
+Thank you for your order
+
+### Product Detail
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/product/:slug
+Product Details - N&N AFFORDABLE BUNDLES
+
+### Category
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/category/:slug
+Products - N&N AFFORDABLE BUNDLES
+
+## Legal & Policy
+
+### Privacy Policy
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://n-n-affordable-bundles-ed1977f1.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## Products
+
+_No products are currently configured._
+
+---
+
+# Business Context (for LLM understanding)
+
+## About N&N AFFORDABLE BUNDLES
+A data bundle reselling business that operates across all mobile networks, offering customers flexible internet data packages. The business caters to a broad market by providing multi-network coverage, making it a one-stop shop for data connectivity needs.
+
+## Target Audience
+- Budget-Conscious Students
+- Remote Workers
+- Traveling Professionals
+
+## Industry
+Telecommunications
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://n-n-affordable-bundles-ed1977f1.zappy5.app/sitemap.xml
+- Robots: https://n-n-affordable-bundles-ed1977f1.zappy5.app/robots.txt
+- Flattened page text (for LLMs): https://n-n-affordable-bundles-ed1977f1.zappy5.app/llms-full.txt
+- Products (JSON): https://n-n-affordable-bundles-ed1977f1.zappy5.app/products.json
+- Products (Google Merchant RSS): https://n-n-affordable-bundles-ed1977f1.zappy5.app/product-feed.xml
