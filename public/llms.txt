@@ -7,65 +7,65 @@
 ## Pages
 
 ### Home
-https://n-n-affordable-bundles-ed1977f1.zappy5.app
+https://example.com
 Shop flexible internet bundles across all mobile networks in one place. N&amp;N AFFORDABLE BUNDLES delivers unbeatable value from top telecommunications service providers. Start saving now!
 
 ### Features
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/features
+https://example.com/features
 Discover how our reselling platform gives you seamless access to fiber optic telecommunications and mobile data packages. Switch networks freely and enjoy total connectivity control.
 
 ### About
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/about
+https://example.com/about
 Learn how N&amp;N AFFORDABLE BUNDLES became a trusted alternative to the bahamas telecommunications company model. Our mission: affordable, borderless data for every lifestyle.
 
 ### Contact
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/contact
+https://example.com/contact
 Ready to upgrade your internet? Reach out today and let our experts match you with the perfect data bundle from leading telecommunications service providers. Your seamless connection starts here.
 
 ### Products
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/products
+https://example.com/products
 Our Products - N&N AFFORDABLE BUNDLES
 
 ### Cart
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/cart
+https://example.com/cart
 Your Cart
 
 ### Checkout
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/checkout
+https://example.com/checkout
 Checkout
 
 ### Login
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/login
+https://example.com/login
 Customer Login
 
 ### Account
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/account
+https://example.com/account
 My Account
 
 ### Order Success
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/order-success
+https://example.com/order-success
 Thank you for your order
 
 ### Product Detail
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/product/:slug
+https://example.com/product/:slug
 Product Details - N&N AFFORDABLE BUNDLES
 
 ### Category
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/category/:slug
+https://example.com/category/:slug
 Products - N&N AFFORDABLE BUNDLES
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/privacy
+https://example.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/terms
+https://example.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://n-n-affordable-bundles-ed1977f1.zappy5.app/accessibility
+https://example.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -93,8 +93,8 @@ Telecommunications
 
 # Machine-readable feeds
 
-- Sitemap (XML): https://n-n-affordable-bundles-ed1977f1.zappy5.app/sitemap.xml
-- Robots: https://n-n-affordable-bundles-ed1977f1.zappy5.app/robots.txt
-- Flattened page text (for LLMs): https://n-n-affordable-bundles-ed1977f1.zappy5.app/llms-full.txt
-- Products (JSON): https://n-n-affordable-bundles-ed1977f1.zappy5.app/products.json
-- Products (Google Merchant RSS): https://n-n-affordable-bundles-ed1977f1.zappy5.app/product-feed.xml
+- Sitemap (XML): https://example.com/sitemap.xml
+- Robots: https://example.com/robots.txt
+- Flattened page text (for LLMs): https://example.com/llms-full.txt
+- Products (JSON): https://example.com/products.json
+- Products (Google Merchant RSS): https://example.com/product-feed.xml
