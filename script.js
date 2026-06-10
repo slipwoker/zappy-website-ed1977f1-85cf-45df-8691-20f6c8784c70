@@ -13055,6 +13055,132 @@ function fixContrast(){
 })();
 
 
+/* ZAPPY_CARD_STOCK_GUARD_V1 */
+;(function(){
+  try {
+    if (window.__zappyCardStockGuardInit) return;
+    window.__zappyCardStockGuardInit = true;
+
+    if (!document.getElementById('zappy-card-stock-guard-css')) {
+      var st = document.createElement('style');
+      st.id = 'zappy-card-stock-guard-css';
+      st.textContent = '.product-card .card-cart-btn.out-of-stock{background:#d1d5db!important;color:#fff!important;cursor:default!important;opacity:0.65!important}.product-card .card-cart-btn.out-of-stock:hover{filter:none!important;transform:none!important}';
+      document.head.appendChild(st);
+    }
+
+    function isUnavailable(v) {
+      if (window.zappyVariantMatrix && typeof window.zappyVariantMatrix.isUnavailable === 'function') return window.zappyVariantMatrix.isUnavailable(v);
+      if (!v) return true;
+      if (typeof v.available === 'boolean') return !v.available;
+      if (v.is_active === false) return true;
+      if (v.stock_status === 'out_of_stock') return true;
+      var iq = v.inventory_quantity != null ? v.inventory_quantity : v.inventoryQuantity;
+      if (iq != null && iq !== '') { var n = parseFloat(iq); if (isFinite(n)) return n <= 0; }
+      var sq = v.stock_quantity;
+      if (sq != null && sq !== '') { var m = parseFloat(sq); if (isFinite(m)) return m <= 0; }
+      return false;
+    }
+    function selAttrs(cv, sel) {
+      var a = {};
+      if (cv.colorKey && sel.color) a[cv.colorKey] = sel.color;
+      if (cv.sizeKey && sel.size) a[cv.sizeKey] = sel.size;
+      return a;
+    }
+    function findMatching(matrix, attrs) {
+      var keys = Object.keys(attrs || {});
+      if (!keys.length) return null;
+      if (window.zappyVariantMatrix && typeof window.zappyVariantMatrix.findMatching === 'function') return window.zappyVariantMatrix.findMatching(matrix, attrs);
+      for (var i = 0; i < (matrix || []).length; i++) {
+        var v = matrix[i], ok = true;
+        for (var j = 0; j < keys.length; j++) { var k = keys[j]; if (!v.attributes || v.attributes[k] !== attrs[k]) { ok = false; break; } }
+        if (ok) return v;
+      }
+      return null;
+    }
+    function blockedReason(p, sel) {
+      if (!p) return 'product';
+      var cv = p.card_variants;
+      if (!cv) return isUnavailable(p) ? 'product' : null;
+      var matrix = cv.matrix || [];
+      if (matrix.length && matrix.every(function(m){ return !m.available; })) return 'product';
+      sel = sel || {};
+      var needColor = !!cv.colorKey, needSize = !!cv.sizeKey;
+      var full = (needColor || needSize) && (!needColor || !!sel.color) && (!needSize || !!sel.size);
+      if (full && !cv.requiresMoreOnPdp) {
+        var matched = findMatching(cv.matrix, selAttrs(cv, sel));
+        if (matched && !matched.available) return 'selection';
+      }
+      return null;
+    }
+    if (!window.zappyCardCartBlockedReason) window.zappyCardCartBlockedReason = blockedReason;
+
+    function productFor(pid) {
+      return (window.__zappyCardProducts && window.__zappyCardProducts[pid]) || (typeof window.zappyGetCardProduct === 'function' && window.zappyGetCardProduct(pid)) || null;
+    }
+    function selectionFor(pid) {
+      return (typeof window.zappyGetCardSelection === 'function' && window.zappyGetCardSelection(pid)) || {};
+    }
+    function oosLabel() {
+      var rtl = document.documentElement.getAttribute('dir') === 'rtl' || document.body.getAttribute('dir') === 'rtl';
+      return rtl ? '\u05D0\u05D6\u05DC \u05DE\u05D4\u05DE\u05DC\u05D0\u05D9' : 'Out of Stock';
+    }
+    function applyBtn(card) {
+      if (!card) return;
+      var btn = card.querySelector('button.card-cart-btn[data-card-cart]');
+      if (!btn) return;
+      var pid = card.getAttribute('data-product-id'), p = productFor(pid);
+      if (!p) return;
+      var blocked = !!blockedReason(p, selectionFor(pid));
+      btn.classList.toggle('out-of-stock', blocked);
+      if (blocked) {
+        btn.setAttribute('aria-disabled', 'true');
+        // Mark the tooltip as overlay-owned so we can clear it later without
+        // clobbering a legit pre-existing title.
+        if (!btn.getAttribute('title')) { btn.setAttribute('title', oosLabel()); btn.setAttribute('data-zappy-oos-title', '1'); }
+      } else {
+        btn.removeAttribute('aria-disabled');
+        // Clear the stale "Out of Stock" tooltip when the combo becomes purchasable.
+        if (btn.getAttribute('data-zappy-oos-title') === '1') { btn.removeAttribute('title'); btn.removeAttribute('data-zappy-oos-title'); }
+      }
+    }
+    function applyAll() {
+      try { document.querySelectorAll('.product-card[data-product-id]').forEach(applyBtn); } catch (e) {}
+    }
+
+    // Capture-phase guard: stop the add BEFORE the stored bubble-phase
+    // zappyCardCartClick handler can run.
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest ? e.target.closest('button.card-cart-btn[data-card-cart]') : null;
+      if (!btn) return;
+      var card = btn.closest('.product-card');
+      if (!card) return;
+      var pid = card.getAttribute('data-product-id'), p = productFor(pid);
+      if (!p) return;
+      if (blockedReason(p, selectionFor(pid))) { e.preventDefault(); e.stopImmediatePropagation(); applyBtn(card); }
+    }, true);
+
+    // A swatch/size pick mutates the persisted selection on the stored
+    // bubble-phase handler; re-sync on the next tick so the button reflects the
+    // new combination's availability.
+    document.addEventListener('click', function(e) {
+      if (e.target.closest && e.target.closest('[data-color],[data-size]')) setTimeout(applyAll, 0);
+    }, false);
+
+    // Re-apply after every grid (re-)render by wrapping the shared hook.
+    var _origAfter = window.zappyAfterCardsRendered;
+    window.zappyAfterCardsRendered = function(scope) {
+      if (typeof _origAfter === 'function') { try { _origAfter(scope); } catch (e) {} }
+      applyAll();
+    };
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyAll);
+    else applyAll();
+    setTimeout(applyAll, 500);
+    setTimeout(applyAll, 1500);
+  } catch (e) {}
+})();
+
+
 /* ZAPPY_PRODUCTS_MENU_LABEL_LANG_GUARD */
 (function(){
   var RTL_RE = /[\u0590-\u05FF\u0600-\u06FF]/;
